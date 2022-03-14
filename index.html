@@ -6,12 +6,44 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <link rel="stylesheet" href="css/col.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+
+<div class="todo">
+  <div class="container">
+    <div class="todo__inner">
+      <div class="todo__box">
+        <form class="todo__form" action="#" id="form">
+          <input class="todo__input" type="text" placeholder="add task">
+          <button class="btn add__btn" type = "submit" id="add" value="+">
+            <i class='bx bx-plus'></i>
+          </button>
+        </form>
+
+      </div>
+      <ul class="todo__list" id="list">
+        <li class="todo__item">
+          <p class="todo__text"> Nothing</p>
+          <button class="btn remove__btn" id="remove">
+            <i class='bx bx-plus'></i>
+          </button>
+        </li>
+      </ul>
+
+      <div class="todo__bottom">
+        <button class="todo_all todo__button">All</button>
+        <button class="todo_comp todo__button" id="compbtn">complete</button>
+        <button class="todo_all todo__button">incomplete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script src="js/main.js"></script>
 </body>
