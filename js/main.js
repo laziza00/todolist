@@ -1,9 +1,10 @@
-const itemInput = document.querySelector('input[type = "text"]');
+const itemInput = document.querySelector('#inputform');
 const form = document.querySelector('#form');
 const addBtn = document.querySelector('#add');
 const removeBtn = document.querySelector('#remove');
 const itemList = document.querySelector('#list')
 const compBtn = document.querySelector('#compbtn');
+const filter = document.querySelector('#filter');
 
 
 
@@ -16,14 +17,15 @@ function addItem (e) {
     e.preventDefault();
     let newItem = itemInput.value;
 
-if (newItem === "") {
-    alert('you must write something');
-}
+// if (newItem === "") {
+//     alert('you must write something');
+// }
 
-else {
+// else {
     let li = document.createElement("li");
     li.className = "todo__item";
-    li.appendChild(document.createTextNode(newItem));
+    // li.appendChild(document.createTextNode(newItem));
+    li.innerHTML = `<p>${newItem}</p>`;
 
     let btnbox = document.createElement("div");
     btnbox.className = "btn__box";
@@ -55,22 +57,51 @@ else {
         li.remove()
     }
 
-    
-// complete button
-
-
-// compBtn.onclick= function (e) {
-//     console.log(itemList.li);
-//     for (let i =0; i<itemList.length; i++) {
-//         if(itemList[i].btnbox.input==true){
-//             console.log("fghj");
-//         }
-//     }
 // }
 }
 
-    
+filter.addEventListener('keyup', filterItems);
+
+
+// filter search
+
+function filterItems(e) {
+    let text = e.target.value.toLowerCase();
+    let items = itemList.getElementsByTagName('li');
+
+    if (text!= '') {
+        for (let i=0; i<Array.from(items).length; i++){
+            console.log(items[i]);
+            let itemName = items[i].firstElementChild.textContent;
+            if (itemName.toLowerCase().indexOf(text) != -1) {
+                items[i].style.color = 'red'
+            }else {
+                items[i].style.display = 'none'
+            }
+        }
+    }
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+// complete button
+
+
+compBtn.onclick= function (e) {
+    console.log(itemList.li);
+    for (let i =0; i<Array.from(itemList).length; i++) {
+        if(itemList[i].btnbox.input==true){
+            console.log("fghj");
+        }
+    }
+}

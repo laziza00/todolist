@@ -19,13 +19,14 @@
   <div class="container">
     <div class="todo__inner">
       <div class="todo__box">
+        <input class="todo__filter" type="text" id="filter" placeholder="Search items...">
         <form class="todo__form" action="#" id="form">
-          <input class="todo__input" type="text" placeholder="add task">
+          <input class="todo__input" type="text" placeholder="add task" id="inputform" required>
           <button class="btn add__btn" type = "submit" id="add" value="+">
             <i class='bx bx-plus'></i>
           </button>
         </form>
-
+     
       </div>
       <ul class="todo__list" id="list">
         <li class="todo__item">
