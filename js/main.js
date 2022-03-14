@@ -46,7 +46,7 @@ function addItem (e) {
     li.appendChild(btnbox);
 
     console.log(li);
-    // itemList.insertBefore(li, list.childNode[0]);
+
     itemList.appendChild(li);
     itemInput.value = "";
 
@@ -60,10 +60,10 @@ function addItem (e) {
 // }
 }
 
+// filter search
+
 filter.addEventListener('keyup', filterItems);
 
-
-// filter search
 
 function filterItems(e) {
     let text = e.target.value.toLowerCase();
@@ -71,7 +71,7 @@ function filterItems(e) {
 
     if (text!= '') {
         for (let i=0; i<Array.from(items).length; i++){
-            console.log(items[i]);
+    
             let itemName = items[i].firstElementChild.textContent;
             if (itemName.toLowerCase().indexOf(text) != -1) {
                 items[i].style.color = 'red'
@@ -86,21 +86,15 @@ function filterItems(e) {
 
 
 
-
-
-
-
-
-
-
-
 // complete button
 
 
-compBtn.onclick= function (e) {
-    console.log(itemList.li);
+compBtn.addEventListener('click', compFilter)
+
+function compFilter (e) {
+
     for (let i =0; i<Array.from(itemList).length; i++) {
-        if(itemList[i].btnbox.input==true){
+        if(itemList[i].btnbox.checkBtn.checked==true){
             console.log("fghj");
         }
     }
